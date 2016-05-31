@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <script src="./bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link href="./bower_components/polymer/polymer.html" rel="import">
+
+    <script>
+
+      // After every second, the memory will increase by ~3 MByte. GC is kicking in sometimes but it will not collect everything.
+      setTimeout(function() {
+        location.reload();
+      }, 1000);
+
+    </script>
+
+  </head>
+
+
+  <body spellcheck="false">
+
+    <h1>Open this html page in IE 11 being served by a static server.</h1>
+
+    <!-- Define a custom element -->
+    <dom-module id="simple-element">
+      <template>
+        <div>Custom Element</div>
+      </template>
+
+      <script>
+        Polymer({ is: 'simple-element' });
+      </script>
+    </dom-module>
+
+
+    <!-- An empty element will also leak! -->
+    <dom-module id="even-simpler-element"></dom-module>
+
+  </body>
+</html>
